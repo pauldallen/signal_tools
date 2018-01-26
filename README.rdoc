@@ -1,3 +1,6 @@
+== UPDATE
+This has been updated to work with YQuotes as the yahoo api was changed/discontinued
+
 == Signal Tools
 
 Signal tools allows you to generate technical analysis data for a given stock (like MACD, stochastic, and exponential moving averages).
