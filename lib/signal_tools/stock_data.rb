@@ -1,4 +1,5 @@
-require 'yahoofinance'
+require 'yquotes'
+require 'date'
 
 module SignalTools
   class StockData
@@ -11,20 +12,39 @@ module SignalTools
       :low            => 3,
       :close          => 4,
 #Presently unused
-#      :volume         => 5,
-#      :adjusted_close => 6
+#      :adj_close => 5,
+#      :volume         => 6
     }
-    attr_reader :raw_data, :dates
+    attr_reader :raw_data, :dates, :client
 
     #Downloads historical prices using the YahooFinance gem.
     def initialize(ticker, from_date, to_date)
       @from_date = from_date
-      @raw_data = YahooFinance::get_historical_quotes(ticker, @from_date-Extra_Days, to_date).reverse
+      @to_date = to_date
+      # @raw_data = YahooFinance::get_historical_quotes(ticker, @from_date-Extra_Days, to_date).reverse
+      quote = get_quote(ticker)
+      @raw_data = transpose_reverse(quote)
       convert_raw_data_strings!
       # We will never have need of the extraneous dates so we trim here
       @dates = trim_dates
     end
 
+    def get_quote(ticker)
+      @client ||= YQuotes::Client.new
+      client.get_quote(ticker, {
+        start_date: (@from_date-Extra_Days).to_s,
+        end_date: @to_date.to_s
+      })
+    end
+    def transpose_reverse(vector_matrix)
+      vt = vector_matrix.transpose.dup
+      vt.vectors.each do |vec|
+        vt.delete_vector(vec)
+      end
+      vector_matrix.transpose.each_vector_with_index do |vec, idx|
+        vt.add_vector(vector_matrix.size - idx, vec)
+      end
+    end
     def open_prices
       @open_prices ||= @raw_data.map { |d| d[Indexes[:open]] }
     end

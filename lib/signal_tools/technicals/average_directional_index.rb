@@ -61,7 +61,7 @@ module SignalTools::Technicals
 
     def plus_directional_movement(data)
       plus_dm = []
-      data.each_cons(2) do |two_days|
+      data.data.each_cons(2) do |two_days|
         um = up_move(two_days.last, two_days.first)
         dm = down_move(two_days.last, two_days.first)
         plus_dm << ((um > dm) ? um : 0)
@@ -71,7 +71,7 @@ module SignalTools::Technicals
 
     def minus_directional_movement(data)
       minus_dm = []
-      data.each_cons(2) do |two_days|
+      data.data.each_cons(2) do |two_days|
         um = up_move(two_days.last, two_days.first)
         dm = down_move(two_days.last, two_days.first)
         minus_dm << ((dm > um) ? dm : 0)
