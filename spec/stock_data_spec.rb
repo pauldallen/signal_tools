@@ -8,7 +8,7 @@ describe YquotesSignalTools::StockData do
   end
 
   it 'should have valid test_dates' do
-    expect(@stock_data.dates.size).to eq(53)
+    expect(@stock_data.dates.size).to eq(52)
   end
 
   it 'should have valid test_open_prices' do

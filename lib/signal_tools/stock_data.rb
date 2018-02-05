@@ -36,6 +36,7 @@ module YquotesSignalTools
         end_date: @to_date.to_s
       })
     end
+
     def transpose_reverse(vector_matrix)
       vt = vector_matrix.transpose.dup
       vt.vectors.each do |vec|
