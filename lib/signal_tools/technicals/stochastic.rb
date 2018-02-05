@@ -1,7 +1,7 @@
 require './lib/signal_tools/technicals/common'
 
-module SignalTools::Technicals::Stochastic
-  include ::SignalTools::Technicals::Common
+module YquotesSignalTools::Technicals::Stochastic
+  include ::YquotesSignalTools::Technicals::Common
 
   attr_reader :d_period, :k_period, :stock_data
 
@@ -11,7 +11,7 @@ module SignalTools::Technicals::Stochastic
 
   def k_d_points(k_points, d_points)
     raise unless k_points.size > d_points.size
-    SignalTools.truncate_to_shortest!(k_points, d_points)
+    YquotesSignalTools.truncate_to_shortest!(k_points, d_points)
     {:k => k_points, :d => d_points}
   end
 

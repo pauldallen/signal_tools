@@ -1,7 +1,7 @@
 require './lib/signal_tools/technicals/common'
 require './lib/signal_tools/technicals/true_range'
 
-module SignalTools::Technicals
+module YquotesSignalTools::Technicals
   class AverageTrueRange
     include Common
     include TrueRange

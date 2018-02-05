@@ -1,7 +1,7 @@
 require './lib/signal_tools/technicals/common'
 require './lib/signal_tools/technicals/stochastic'
 
-module SignalTools::Technicals
+module YquotesSignalTools::Technicals
   class FastStochastic
     include Common
     include Stochastic

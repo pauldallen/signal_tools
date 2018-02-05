@@ -1,6 +1,6 @@
 require './lib/signal_tools/technicals/true_range'
 
-module SignalTools::Technicals
+module YquotesSignalTools::Technicals
   class AverageDirectionalIndex
     include TrueRange
 
@@ -23,7 +23,7 @@ module SignalTools::Technicals
     end
 
     def directional_indexes(plus_dis, minus_dis)
-      SignalTools.truncate_to_shortest!(plus_dis, minus_dis)
+      YquotesSignalTools.truncate_to_shortest!(plus_dis, minus_dis)
       differences, sums = [], []
       index = 0
       while index < plus_dis.size
@@ -49,7 +49,7 @@ module SignalTools::Technicals
     end
 
     def quotients(first, second)
-      SignalTools.truncate_to_shortest!(first, second)
+      YquotesSignalTools.truncate_to_shortest!(first, second)
       index = 0
       quots = []
       while index < first.size
@@ -82,21 +82,21 @@ module SignalTools::Technicals
 #TODO: Pass in only the high prices to this method
     # Up move is today_high - yesterday_high
     def up_move(today, yesterday)
-      diff = today[SignalTools::StockData::Indexes[:high]] - yesterday[SignalTools::StockData::Indexes[:high]]
+      diff = today[YquotesSignalTools::StockData::Indexes[:high]] - yesterday[YquotesSignalTools::StockData::Indexes[:high]]
       diff > 0 ? diff : 0
     end
 
 #TODO: Pass in only the low prices to this method
     # Down move is yesterday_low - today_low
     def down_move(today, yesterday)
-      diff = yesterday[SignalTools::StockData::Indexes[:low]] - today[SignalTools::StockData::Indexes[:low]]
+      diff = yesterday[YquotesSignalTools::StockData::Indexes[:low]] - today[YquotesSignalTools::StockData::Indexes[:low]]
       diff > 0 ? diff : 0
     end
 
     #Takes a period and array of data and calculates the sum ema over the period specified.
     def period_sum_ema(data)
       raise if data.size <= period
-      sum_emas = [SignalTools.sum(data[0...period])]
+      sum_emas = [YquotesSignalTools.sum(data[0...period])]
       data[(period..-1)].each do |today|
         sum_emas << (sum_emas.last - (sum_emas.last / period) + today)
       end

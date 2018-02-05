@@ -1,6 +1,6 @@
 require './lib/signal_tools/technicals/stochastic'
 
-module SignalTools::Technicals
+module YquotesSignalTools::Technicals
   class SlowStochastic
     include Stochastic
 

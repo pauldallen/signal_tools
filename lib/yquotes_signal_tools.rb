@@ -8,7 +8,7 @@ require "signal_tools/technicals/fast_stochastic"
 require "signal_tools/technicals/slow_stochastic"
 require "signal_tools/technicals/macd"
 
-module SignalTools
+module YquotesSignalTools
   def self.sum(array)
     array.inject(0) {|accum, c| accum + c.to_f }
   end

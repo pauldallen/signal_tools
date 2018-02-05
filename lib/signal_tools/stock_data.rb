@@ -1,7 +1,7 @@
 require 'yquotes'
 require 'date'
 
-module SignalTools
+module YquotesSignalTools
   class StockData
     # Extra days needed to produce accurate data for the desired date.
     Extra_Days = 365

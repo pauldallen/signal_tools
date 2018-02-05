@@ -1,14 +1,14 @@
-require_relative 'spec_helper'
+require_relative 'yquotes_spec_helper'
 
-describe SignalTools::StockData do
+describe YquotesSignalTools::StockData do
   before(:each) do
-    allow_any_instance_of(SignalTools::StockData).to receive(:get_quote).and_return(data_for_tests(ticker))
-    @stock = SignalTools::Stock.new(ticker)
+    allow_any_instance_of(YquotesSignalTools::StockData).to receive(:get_quote).and_return(data_for_tests(ticker))
+    @stock = YquotesSignalTools::Stock.new(ticker)
     @stock_data = @stock.stock_data
   end
 
   it 'should have valid test_dates' do
-    expect(@stock_data.dates.size).to eq(58)
+    expect(@stock_data.dates.size).to eq(53)
   end
 
   it 'should have valid test_open_prices' do

@@ -1,6 +1,6 @@
 require './lib/signal_tools/technicals/common'
 
-module SignalTools
+module YquotesSignalTools
   module Technicals
     module Common
       def trim_data_to_range(data, size)
@@ -14,14 +14,14 @@ module SignalTools
 
       # Gets the first 0...period of numbers from data and returns a simple average.
       def default_simple_average(data, period)
-        SignalTools.average(data.slice(0...period))
+        YquotesSignalTools.average(data.slice(0...period))
       end
 
       #Runs method for the given slice of the array.
       def get_for_period(points, start, finish, method)
         case method
           when :average
-            SignalTools.average(points.slice(start..finish))
+            YquotesSignalTools.average(points.slice(start..finish))
           else
             (points.slice(start..finish)).send(method)
           end

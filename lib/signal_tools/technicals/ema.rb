@@ -1,6 +1,6 @@
 require './lib/signal_tools/technicals/common'
 
-module SignalTools::Technicals
+module YquotesSignalTools::Technicals
   class EMA
     include Common
 

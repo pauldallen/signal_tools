@@ -1,4 +1,4 @@
-module SignalTools
+module YquotesSignalTools
   module Technicals
     module TrueRange
       # Takes historical data and computes the true ranges.
@@ -15,9 +15,9 @@ module SignalTools
       # Takes today's data and yesterday's data and computes the true range.
       def true_range(today, yesterday)
         [
-          today[SignalTools::StockData::Indexes[:high]] - today[SignalTools::StockData::Indexes[:low]],
-          (yesterday[SignalTools::StockData::Indexes[:close]] - today[SignalTools::StockData::Indexes[:high]]).abs,
-          (yesterday[SignalTools::StockData::Indexes[:close]] - today[SignalTools::StockData::Indexes[:low]]).abs
+          today[YquotesSignalTools::StockData::Indexes[:high]] - today[YquotesSignalTools::StockData::Indexes[:low]],
+          (yesterday[YquotesSignalTools::StockData::Indexes[:close]] - today[YquotesSignalTools::StockData::Indexes[:high]]).abs,
+          (yesterday[YquotesSignalTools::StockData::Indexes[:close]] - today[YquotesSignalTools::StockData::Indexes[:low]]).abs
         ].max
       end
     end
