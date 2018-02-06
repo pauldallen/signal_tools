@@ -1,4 +1,3 @@
-
 module YquotesSignalTools
   module Technicals
     module Common

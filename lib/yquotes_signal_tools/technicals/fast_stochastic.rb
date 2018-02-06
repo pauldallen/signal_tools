@@ -1,5 +1,5 @@
-require './lib/signal_tools/technicals/common'
-require './lib/signal_tools/technicals/stochastic'
+require_relative './common'
+require_relative './stochastic'
 
 module YquotesSignalTools::Technicals
   class FastStochastic

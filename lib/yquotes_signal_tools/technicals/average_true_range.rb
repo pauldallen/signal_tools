@@ -1,5 +1,5 @@
-require './lib/signal_tools/technicals/common'
-require './lib/signal_tools/technicals/true_range'
+require_relative './common'
+require_relative './true_range'
 
 module YquotesSignalTools::Technicals
   class AverageTrueRange

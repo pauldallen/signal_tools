@@ -1,12 +1,12 @@
-require "signal_tools/stock_data"
-require "signal_tools/stock"
-require "signal_tools/technicals/average_directional_index"
-require "signal_tools/technicals/average_true_range"
-require "signal_tools/technicals/common"
-require "signal_tools/technicals/ema"
-require "signal_tools/technicals/fast_stochastic"
-require "signal_tools/technicals/slow_stochastic"
-require "signal_tools/technicals/macd"
+require_relative './yquotes_signal_tools/stock_data'
+require_relative './yquotes_signal_tools/stock'
+require_relative './yquotes_signal_tools/technicals/average_directional_index'
+require_relative './yquotes_signal_tools/technicals/average_true_range'
+require_relative './yquotes_signal_tools/technicals/common'
+require_relative './yquotes_signal_tools/technicals/ema'
+require_relative './yquotes_signal_tools/technicals/fast_stochastic'
+require_relative './yquotes_signal_tools/technicals/slow_stochastic'
+require_relative './yquotes_signal_tools/technicals/macd'
 
 module YquotesSignalTools
   def self.sum(array)

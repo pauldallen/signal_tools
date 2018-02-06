@@ -1,4 +1,4 @@
-require './lib/signal_tools/technicals/common'
+require_relative './technicals/common'
 
 module YquotesSignalTools
   class Stock

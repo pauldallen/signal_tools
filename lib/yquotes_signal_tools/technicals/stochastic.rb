@@ -1,4 +1,4 @@
-require './lib/signal_tools/technicals/common'
+require_relative './common'
 
 module YquotesSignalTools::Technicals::Stochastic
   include ::YquotesSignalTools::Technicals::Common
